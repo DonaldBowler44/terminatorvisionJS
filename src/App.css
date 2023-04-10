@@ -2,37 +2,115 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: relative; /* Add this line */
+  width: 100vw; /* changed from 640px to 100vw */
+  height: 100vh; /* changed from 480px to 100vh */
+  margin: auto; /* Add this line */
 }
 
-.App-link {
-  color: #61dafb;
+
+.terminator-vision-title {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.App-webcam,
+.App-canvas {
+  position: absolute;
+  width: 640px;
+  height: 480px;
+}
+
+.App-webcam video {
+  width: 100%;
+  height: 100%;
+}
+
+.App-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.left-text {
+  position: absolute;
+  left: 5%; /* added to align to the left */
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 26px;
+  line-height: 1.4;
+  width: 50%; /* added to take up half of the screen */
+  text-align: left; /* added to align text to the left */
+}
+
+.right-text {
+  position: absolute;
+  right: 5%; /* added to align to the right */
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 26px;
+  line-height: 1.4;
+  width: 50%; /* added to take up half of the screen */
+  text-align: right; /* added to align text to the right */
+}
+
+
+.modelinfo {
+  text-align: right;
+}
+
+@keyframes flash {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.my-svg {
+  width: 100%;
+  height: auto;
+  max-width: 150px; /* or adjust to the desired size */
+  max-height: 150px; /* or adjust to the desired size */
+  animation: flash 1s infinite;
+}
+
+.flash {
+  animation: flash-animation 0.5s infinite;
+}
+
+@keyframes flash-animation {
+  0% {
+    visibility: hidden;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    visibility: hidden;
   }
+  100% {
+    visibility: visible;
+  }
+}
+
+.click-me-button{
+  position: absolute;
+  bottom: 20px; /* adjust this value to position the button vertically */
+  left: 50%;
+  transform: translateX(-50%);
+
 }
